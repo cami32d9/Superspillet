@@ -1,0 +1,28 @@
+html {
+    background-color: #CFCCC6;
+    font-family: 'Open Sans', sans-serif;
+    color: #1f1f1f;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    margin: auto;
+    max-width: 1200px;
+    background-color: beige;
+    padding: 30px;
+}
+
+.image {
+    width: 30%;
+    margin: 1%;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+}
