@@ -1,0 +1,62 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#screen {
+    /* @see https://stackoverflow.com/a/20593342/1155596 */
+    width: 100vw;
+    height: 56.25vw;
+    max-height: 100vh;
+    max-width: 177.78vh;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: #CFCCC6;
+}
+
+img {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#character {
+    background-image: url(elements/boy.svg);
+    background-size: cover;
+    height: 90%;
+    width: 30%;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+}
+
+#boble_1 {
+    background-image: url(elements/boble_left.svg);
+    background-size: cover;
+    height: 23%;
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+#boble_2 {
+    background-image: url(elements/boble_left.svg);
+}
+
+#boble_3 {
+    background-image: url(elements/boble_right.svg);
+}
+
+#boble_4 {
+    background-image: url(elements/boble_right.svg);
+}

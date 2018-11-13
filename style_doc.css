@@ -26,3 +26,12 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
+a {
+    text-decoration: none;
+}
+
+#menu {
+    border: 1px solid black;
+    padding: 20px;
+}
