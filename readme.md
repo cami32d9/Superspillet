@@ -11,3 +11,7 @@ https://docs.google.com/document/d/1XbvxKd2Su805CK7uiwMgaYQ_USt0cVHFhXzKM199B2E/
 
 <strong>SCRUM</strong>  
 https://trello.com/b/pOoNLKBc/gruppe-12
+
+
+<strong>Aktivitetsdiagram</strong>
+https://www.lucidchart.com/invitations/accept/41764b1b-88f7-494c-8b86-d5f5d493dcc9

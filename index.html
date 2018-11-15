@@ -5,15 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sex & Samfund - Gruppe 12</title>
+    <title>Sex &amp; Samfund - Gruppe 12</title>
 </head>
 
 <body>
     <div id="screen">
-        <div id="start_screen">
-        </div>
-        <div id="settings_screen">
-        </div>
+
+
         <div id="game_screen">
             <div id="character"></div>
             <div id="boble_1"></div>
@@ -22,12 +20,84 @@
             <div id="boble_4"></div>
             <div id="timer"></div>
             <div id="snak_o_meter"></div>
+
+
         </div>
-        <div id="gameover_screen">
+
+
+        <div id="about_screen">
+            <div id="next" class="click"></div>
         </div>
-        <div id="levelcomplete_screen">
+
+
+        <div id="start_screen">
+            <div id="play_but" class="click"></div>
+            <div id="settings_but" class="click"></div>
+            <div id="visit_us1">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42" target="_blank">
+                </a>
+
+
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <div id="settings_screen" class="hidden">
+            <div id="music" class="click on"></div>
+            <div id="sfx" class="click on"></div>
+            <div id="settings_exit" class="click"></div>
+        </div>
+
+
+        <div id="gameover_screen" class="hidden">
+            <div id="playagain1" class="click"></div>
+            <div id="visit_us2">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42">
+                </a>
+
+
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
+            </div>
+        </div>
+
+
+
+        <div id="levelcomplete_screen" class="hidden">
+            <div id="playagain2" class="click"></div>
+            <div id="visit_us3">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42" target="_blank">
+                </a>
+
+
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
+
+
+            </div>
         </div>
     </div>
+
+
+    <audio src="elements/music_01.mp3" id="myMusic"></audio>
+
+
+    <audio src="elements/click.mp3" id="sfx1"></audio>
+
+    <audio src="elements/meow.mp3" id="sfx2"></audio>
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -3,9 +3,11 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    width: 100vw;
+
+    padding: 10% 45%;
 }
 
-/*hej*/
 #screen {
     /* @see https://stackoverflow.com/a/20593342/1155596 */
     width: 100vw;
@@ -30,6 +32,11 @@ img {
     display: none;
 }
 
+
+#game_screen {}
+
+
+
 #character {
     background-image: url(elements/boy.svg);
     background-size: cover;
@@ -52,12 +59,315 @@ img {
 
 #boble_2 {
     background-image: url(elements/boble_left.svg);
+    background-size: cover;
+    height: 23%;
+    width: 30%;
+    position: absolute;
+    top: 55%;
+    left: 5%;
 }
 
 #boble_3 {
     background-image: url(elements/boble_right.svg);
+    background-size: cover;
+    height: 23%;
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    left: 65%;
 }
 
 #boble_4 {
     background-image: url(elements/boble_right.svg);
+    background-size: cover;
+    height: 23%;
+    width: 30%;
+    position: absolute;
+    top: 55%;
+    left: 65%;
 }
+
+
+/*ANNALEES KODE*/
+
+.fade_out {
+    animation-name: fade_out_kf;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade_out_kf {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.hide {
+    display: none;
+}
+
+
+.click {
+    cursor: pointer;
+}
+
+
+#snak_o_meter {
+    background-image: url(elements/Snak-o-meter.svg);
+    background-size: cover;
+    height: 40%;
+    width: 4%;
+    position: absolute;
+    top: 20%;
+    left: 95%;
+
+}
+
+
+
+
+#timer {
+
+    background-image: url(elements/Timer.svg);
+    background-size: cover;
+    height: 23%;
+    width: 30%;
+    position: absolute;
+    top: 75%;
+    left: 2%;
+
+
+}
+
+
+#start_screen {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(elements/startskaerm.svg);
+    background-size: 100%;
+
+
+}
+
+
+
+#play_but {
+
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    background-image: url(elements/americaplaybutton.svg);
+    background-size: 100%;
+
+}
+
+#settings_but {
+
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    background-image: url(elements/settingsknap.svg);
+    background-size: 100%;
+
+}
+
+#visit_us1 {
+
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 3%;
+
+
+
+}
+
+
+#settings_screen {
+
+    position: absolute;
+    top: 15%;
+    left: 13%;
+    width: 70%;
+    height: 65%;
+    background-image: url(elements/settingsupdated.svg);
+    background-size: 100%;
+
+}
+
+
+#music {
+    position: absolute;
+    top: 37%;
+    width: 4%;
+    height: 8%;
+    background-image: url(elements/settingsroedknap.svg);
+    background-size: 100%;
+
+}
+
+#sfx {
+
+    position: absolute;
+    top: 59%;
+    width: 4%;
+    height: 8%;
+    background-image: url(elements/settingsroedknap.svg);
+    background-size: 100%;
+}
+
+
+.on {
+
+
+    left: 78%;
+}
+
+.off {
+
+
+    left: 63%;
+}
+
+
+#settings_exit {
+    position: absolute;
+    top: 7%;
+    left: 90%;
+    width: 4%;
+    height: 9%;
+    background-image: url(elements/exitknap.svg);
+    background-size: 100%;
+
+
+}
+
+
+#about_screen {
+
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    width: 90%;
+    height: 75%;
+    background-image: url(elements/aboutskaerm.svg);
+    background-size: 100%;
+
+}
+
+
+#next {
+
+    position: absolute;
+    top: 70%;
+    left: 41%;
+    width: 15%;
+    height: 11.5%;
+    background-image: url(elements/americaplaybutton.svg);
+    background-size: 100%;
+
+}
+
+
+
+
+#gameover_screen {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(elements/gameoverskaerm.svg);
+    background-size: 100%;
+
+}
+
+#visit_us2 {
+
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 3%;
+
+
+
+}
+
+#playagain1 {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    background-image: url(elements/playagainknap.svg);
+    background-size: 100%;
+
+}
+
+
+#levelcomplete_screen {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(elements/vinderskaerm.svg);
+    background-size: 100%;
+
+}
+
+#visit_us3 {
+
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 15%;
+    height: 10%;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 3%;
+
+
+
+}
+
+#playagain2 {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    width: 15%;
+    height: 11.5%;
+    background-image: url(elements/playagainknap.svg);
+    background-size: 100%;
+
+}
+
+
+
+/*ANNALEES KODE SLUT*/
