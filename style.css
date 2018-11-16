@@ -117,8 +117,8 @@ img {
     height: 5%;
     width: 10%;
     position: absolute;
-    top: 41%;
-    left: 45%;
+    top: 42%;
+    left: 44%;
 }
 
 .mouth_1 {
@@ -255,10 +255,37 @@ img {
     background-size: contain;
     background-repeat: no-repeat;
     height: 9%;
-    width: 14%;
+    width: 12%;
     position: absolute;
     bottom: 3%;
+}
+
+.bus_1 {
     left: 2%;
+}
+
+.bus_2 {
+    left: 3%;
+}
+
+.bus_3 {
+    left: 6%;
+}
+
+.bus_4 {
+    left: 9%;
+}
+
+.bus_5 {
+    left: 12%;
+}
+
+.bus_6 {
+    left: 15%;
+}
+
+.bus_7 {
+    left: 18%;
 }
 
 
