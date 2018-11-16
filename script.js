@@ -3,8 +3,6 @@ let showSettingsMusic = true;
 //let score = 0;
 //let timeLeft = 15;
 
-
-
 window.addEventListener("load", pageLoaded);
 
 function pageLoaded() {
@@ -17,26 +15,50 @@ function pageLoaded() {
 
 }
 
-
-
-
 function showStart() {
     console.log("show start");
 
 
-    document.querySelector("#play_but").addEventListener("click", hideStart);
+    document.querySelector("#play_but").addEventListener("click", showAbout);
+    document.querySelector("#start_elements").classList.remove("hidden");
 
     document.querySelector("#settings_but").addEventListener("click", showSettings);
 
 }
+function hideStart() {
+    console.log("hide start");
 
+    document.querySelector("#sfx1").play();
+    document.querySelector("#start_elements").classList.add("fade_out");
+    // Kan tilføjes til andre fade-outs, eks. når vi skal fra start til settings og tilbage
+    document.querySelector("#start_elements").addEventListener("animationend", function _listener() {
+        document.querySelector("#start_elements").classList.add("hidden");
+        document.querySelector("#start_elements").removeEventListener("animationend", _listener);
+    });
+    //
+
+
+    //rydde op:
+    document.querySelector("#play_but").removeEventListener("click", hideStart);
+
+    document.querySelector("#settings_but").removeEventListener("click", showSettings);
+
+    //rydde op slut
+
+    document.querySelector("#pop_screen").addEventListener("animationend", showAbout);
+
+    document.querySelector("#myMusic").play();
+    document.querySelector("#myMusic").loop = true;
+    document.querySelector("#myMusic").volume = 0.4;
+
+
+}
 
 function showSettings() {
     console.log("show settings");
-
-
+    document.querySelector("#start_elements").classList.add("hidden");
     document.querySelector("#sfx1").play();
-    document.querySelector("#settings_screen").classList.remove("hidden");
+    document.querySelector("#settings_elements").classList.remove("hidden");
 
     document.querySelector("#music").addEventListener("click", toggleMusic);
 
@@ -46,9 +68,13 @@ function showSettings() {
 
 
 }
+function hideSettings() {
 
-
-
+    console.log("hideSettings");
+    document.querySelector("#settings_elements").classList.add("hidden");
+    document.querySelector("#sfx1").play();
+    showStart();
+}
 
 function toggleMusic() {
 
@@ -64,8 +90,6 @@ function toggleMusic() {
 
     document.querySelector("#sfx1").play();
 }
-
-
 function musicOff() {
     console.log("musicOff");
 
@@ -74,7 +98,6 @@ function musicOff() {
 
     document.querySelector("#myMusic").muted = true;
 }
-
 function musicOn() {
     console.log("musicOn");
 
@@ -84,9 +107,6 @@ function musicOn() {
     document.querySelector("#myMusic").muted = false;
 
 }
-
-
-
 
 function toggleSound() {
 
@@ -105,7 +125,6 @@ function toggleSound() {
 
     document.querySelector("#sfx1").play();
 }
-
 function soundsOff() {
     console.log("soundsOff");
 
@@ -116,7 +135,6 @@ function soundsOff() {
     document.querySelector("#sfx2").muted = true;
     //    document.querySelector("#sfx3").muted = true;
 }
-
 function soundsOn() {
     console.log("soundsOn");
 
@@ -129,93 +147,47 @@ function soundsOn() {
 
 }
 
-
-
-
-
-
-
-function hideSettings() {
-
-    console.log("hideSettings");
-    document.querySelector("#settings_screen").classList.add("hidden");
-    document.querySelector("#sfx1").play();
-
-}
-
-
-
-
-function hideStart() {
-    console.log("hide start");
-
-    document.querySelector("#sfx1").play();
-
-    //rydde op:
-    document.querySelector("#play_but").removeEventListener("click", hideStart);
-
-    document.querySelector("#settings_but").removeEventListener("click", showSettings);
-
-    //rydde op slut
-
-
-    document.querySelector("#start_screen").classList.add("fade_out");
-
-
-    document.querySelector("#start_screen").addEventListener("animationend", showAbout);
-
-
-
-
-
-
-    document.querySelector("#myMusic").play();
-    document.querySelector("#myMusic").loop = true;
-    document.querySelector("#myMusic").volume = 0.4;
-
-
-}
-
-
-
-
 function showAbout() {
-
-
-
-
     console.log("show about");
-
-    //ryd op
-
-    document.querySelector("#start_screen").removeEventListener("animationend", startGame);
-
-    document.querySelector("#start_screen").classList.remove("fade_out");
-    //ryd op slut
-
-
+    hideStart()
+    document.querySelector("#about_screen").classList.remove("hidden");
+    document.querySelector("#about_screen").classList.add("fade_in");
 
     //    document.querySelector("#myMusic").play();
     //    document.querySelector("#myMusic").loop = true;
     //    document.querySelector("#myMusic").volume = 0.7;
-
-
-
-
-    document.querySelector("#start_screen").classList.add("hidden");
-
-
-
     //document.querySelector("#about").classList.remove("hide");
 
-    document.querySelector("#next").addEventListener("click", startGame);
-
-
+    document.querySelector("#play_boy").addEventListener("click", playBoy);
+    document.querySelector("#play_girl").addEventListener("click", playGirl);
 
 }
 
-function startGame() {
+function playBoy () {
+    document.querySelector("#character").classList.add("boy");
+    startGame();
+}
 
+function playGirl () {
+    document.querySelector("#character").classList.add("girl");
+    startGame();
+}
+
+function hideAbout () {
+    document.querySelector("#about_screen").classList.add("fade_out");
+    document.querySelector("#about_screen").addEventListener("animationend", function _listener() {
+        document.querySelector("#about_screen").classList.add("hidden");
+        document.querySelector("#about_screen").removeEventListener("animationend", _listener);
+    });
+    document.querySelector("#pop_screen").classList.add("fade_out");
+    document.querySelector("#pop_screen").addEventListener("animationend", function _listener() {
+        document.querySelector("#pop_screen").classList.add("hidden");
+        document.querySelector("#pop_screen").removeEventListener("animationend", _listener);
+    });
+}
+
+function startGame() {
+    hideAbout();
     console.log("start game")
 
     document.querySelector("#sfx1").play();
@@ -227,6 +199,7 @@ function startGame() {
 
     //Ryd op:
     document.querySelector("#about_screen").classList.add("hidden");
+    document.querySelector("#game_screen").classList.remove("hidden");
 
     document.querySelector("#next").removeEventListener("click", startGame);
 
@@ -240,18 +213,20 @@ function startGame() {
 
     //start tid:
 
-    timeLeft();
+    // timeLeft();
 
 
 
 
 }
 
+// GAME
 
 
 
 
 
+// Not in use yet?
 
 function timeLeftFc() {
     console.log("function time_left=" + timeLeft);
