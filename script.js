@@ -49,7 +49,6 @@ function hideStart() {
 
     //rydde op slut
 
-    document.querySelector("#pop_screen").addEventListener("animationend", showAbout);
 
     document.querySelector("#myMusic").play();
     document.querySelector("#myMusic").loop = true;
@@ -156,7 +155,6 @@ function showAbout() {
     hideStart()
     document.querySelector("#about_screen").classList.remove("hidden");
     document.querySelector("#about_screen").classList.add("fade_in");
-
     //    document.querySelector("#myMusic").play();
     //    document.querySelector("#myMusic").loop = true;
     //    document.querySelector("#myMusic").volume = 0.7;
@@ -178,6 +176,7 @@ function playGirl () {
 }
 
 function hideAbout () {
+    document.querySelector("#about_screen").classList.remove("fade_in");
     document.querySelector("#about_screen").classList.add("fade_out");
     document.querySelector("#about_screen").addEventListener("animationend", function _listener() {
         document.querySelector("#about_screen").classList.add("hidden");
@@ -201,89 +200,16 @@ function startGame() {
     //    score = 0;
     //    timeLeft = 15;
 
-    //Ryd op:
-    document.querySelector("#about_screen").classList.add("hidden");
-    document.querySelector("#game_screen").classList.remove("hidden");
     Bubbles.shuffle();
     Bubbles.enable();
 
-    //ryd op slut
-
 
     //start animation:
-
-
-
 
     //start tid:
 
     // timeLeft();
 
-
-
-
-}
-
-// GAME
-
-
-
-
-
-// Not in use yet?
-
-function timeLeftFc() {
-    console.log("function time_left=" + timeLeft);
-
-    if (timeLeft > 0) {
-        timeLeft--;
-        setTimeout(timeLeftFc, 1000);
-
-        document.querySelector("#time").innerHTML = timeLeft;
-    } else if (score >= 5) {
-
-        gameWon();
-    } else {
-        gameOver();
-    }
-
-
-
-
-
-}
-
-function gameOver() {
-    console.log("game over")
-
-    document.querySelector("#gameover_screen").classList.remove("hidden");
-    timeLeft = 0;
-
-    document.querySelector("#sfx2").pause();
-    document.querySelector("#gosound").play();
-
-
-    document.querySelector("#playagain1").addEventListener("click", startGame);
-
-    //    document.querySelector("#playagain_knap").addEventListener("click", gameReset);
-
-}
-
-
-function gameWon() {
-    console.log("game won")
-
-    //    document.querySelector("#gameover").classList.add("hide");
-
-    document.querySelector("#levelcomplete_screen").classList.remove("hide");
-    timeLeft = 0;
-
-
-    document.querySelector("#sfx1").pause();
-    document.querySelector("#winsound").play();
-
-
-    document.querySelector("#playagain2").addEventListener("click", startGame);
 }
 
 
@@ -392,11 +318,14 @@ function moveBus() {
     let busCurrent = "bus_" + busPosition;
     document.querySelector("#bus").classList.add(busCurrent);
     if (busPosition === 7) {
-        console.log("Game over");
-    //    TILFØJ GAME-OVER SKÆRM
+        if (points >= 10) {
+        showLevelComplete();
+        }
+        else if (points <= 9) {
+            showGameOver();
+        }
     }
 }
-
 
 function clickIntimate() {
     if (points === 11) {
@@ -423,7 +352,6 @@ function clickIntimate() {
     }
 };
 
-
 function clickComfortable() {
     if (points !== 0) {
         console.log("Click comfortable");
@@ -441,3 +369,67 @@ function clickComfortable() {
         document.querySelector("#mouth").classList.add(currentMouth);
     }
 };
+
+
+// Not in use yet?
+
+function timeLeftFc() {
+    console.log("function time_left=" + timeLeft);
+
+    if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(timeLeftFc, 1000);
+
+        document.querySelector("#time").innerHTML = timeLeft;
+    } else if (score >= 5) {
+
+        gameWon();
+    } else {
+        gameOver();
+    }
+
+
+
+
+
+}
+
+function showGameOver() {
+    console.log("game over")
+    document.querySelector("#pop_screen").classList.remove("hidden");
+    document.querySelector("#pop_screen").classList.remove("fade_out");
+    document.querySelector("#pop_screen").classList.add("fade_in");
+    document.querySelector("#gameover_elements").classList.remove("hidden");
+    document.querySelector("#gameover_elements").classList.add("fade_in");
+    timeLeft = 0;
+
+    document.querySelector("#sfx2").pause();
+    // document.querySelector("#gosound").play();
+
+
+    document.querySelector("#playagain1").addEventListener("click", startGame);
+
+    //    document.querySelector("#playagain_knap").addEventListener("click", gameReset);
+
+}
+
+function showLevelComplete() {
+    console.log("game won")
+    document.querySelector("#pop_screen").classList.remove("hidden");
+    document.querySelector("#pop_screen").classList.remove("fade_out");
+    document.querySelector("#pop_screen").classList.add("fade_in");
+    document.querySelector("#levelcomplete_elements").classList.remove("hidden");
+    document.querySelector("#levelcomplete_elements").classList.add("fade_in");
+
+    //    document.querySelector("#gameover").classList.add("hide");
+
+    document.querySelector("#levelcomplete_screen").classList.remove("hide");
+    timeLeft = 0;
+
+
+    document.querySelector("#sfx1").pause();
+    document.querySelector("#winsound").play();
+
+
+    document.querySelector("#playagain2").addEventListener("click", startGame);
+}

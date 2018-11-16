@@ -445,37 +445,32 @@ img {
     background-repeat: no-repeat;
 }
 
-#play_but {
+.button {
     position: absolute;
-    top: 30%;
-    left: 35%;
     width: 30%;
     height: 13%;
-    background-image: url(elements/start_button.svg);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#play_but {
+    top: 30%;
+    left: 35%;
+    background-image: url(elements/start_button.svg);
 }
 
 #settings_but {
     position: absolute;
     top: 46%;
     left: 35%;
-    width: 30%;
-    height: 13%;
     background-image: url(elements/settings_button.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 #visit_but {
     position: absolute;
     top: 62%;
     left: 35%;
-    width: 30%;
-    height: 13%;
     background-image: url(elements/visit_button.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 
@@ -597,45 +592,73 @@ img {
 
 /* GAME OVER*/
 
-
-#gameover_screen {
-
+#gameover_elements {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(elements/gameoverskaerm.svg);
-    background-size: 100%;
-
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
 }
 
-#visit_us2 {
-
+#gameover_text {
     position: absolute;
+    top: 13%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    background-image: url(elements/gameover_text.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#gameover_play_again {
     top: 70%;
-    left: 40%;
-    width: 15%;
-    height: 10%;
-    font-family: monospace;
-    text-align: center;
-    padding-top: 3%;
-
+    left: 15%;
+    background-image: url(elements/play_again_button.svg);
 }
 
-#playagain1 {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    width: 15%;
-    height: 10%;
-    background-image: url(elements/playagainknap.svg);
-    background-size: 100%;
-
+#gameover_visit_but {
+    top: 70%;
+    left: 55%;
+    background-image: url(elements/visit_button.svg);
 }
 
 
 /* LEVEL COMPLETE */
+
+#levelcomplete_elements {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+#levelcomplete_text {
+    position: absolute;
+    top: 13%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    background-image: url(elements/level_complete_text.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#levelcomplete_play_again {
+    top: 70%;
+    left: 15%;
+    background-image: url(elements/play_again_button.svg);
+}
+
+#levelcomplete_visit_but {
+    top: 70%;
+    left: 55%;
+    background-image: url(elements/visit_button.svg);
+}
+
+
+/* wot */
 
 #levelcomplete_screen {
 
@@ -664,16 +687,6 @@ img {
 
 }
 
-#playagain2 {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    width: 15%;
-    height: 11.5%;
-    background-image: url(elements/playagainknap.svg);
-    background-size: 100%;
-
-}
 
 
 
