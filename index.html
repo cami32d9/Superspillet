@@ -10,76 +10,93 @@
 
 <body>
     <div id="screen">
-        <div id="screen_background"></div>
+
 
         <div id="game_screen">
-
             <div id="character"></div>
-            <div id="mouth" class="mouth_3"></div>
-            <div id="table"></div>
-            <div id="triangle_1" class="triangle"></div>
-            <div id="triangle_2" class="triangle"></div>
-            <div id="triangle_3" class="triangle"></div>
-            <div id="triangle_4" class="triangle"></div>
+            <div id="boble_1"></div>
+            <div id="boble_2"></div>
+            <div id="boble_3"></div>
+            <div id="boble_4"></div>
+            <div id="timer"></div>
+            <div id="snak_o_meter"></div>
 
-            <div id="mom_bubble_container" class="mom_start"></div>
-            <div id="bubbles">
-                <div id="bubble_container_1" class="bubble_container click bubble_1"></div>
-                <div id="bubble_container_2" class="bubble_container click bubble_1"></div>
-                <div id="bubble_container_3" class="bubble_container click bubble_1"></div>
-                <div id="bubble_container_4" class="bubble_container click bubble_1"></div>
+
+        </div>
+
+
+        <div id="about_screen">
+            <div id="next" class="click"></div>
+        </div>
+
+
+        <div id="start_screen">
+            <div id="play_but" class="click"></div>
+            <div id="settings_but" class="click"></div>
+            <div id="visit_us1">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42" target="_blank">
+                </a>
+
+
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
+
+
             </div>
-            <div id="house"></div>
-            <div id="bus" class="bus_1"></div>
-            <div id="snak_o_meter" class="points_6"></div>
         </div>
 
 
-        <div id="pop_screen"></div>
-        <div id="about_screen" class="hidden">
-            <div id="about_text"></div>
-            <div id="play_boy" class="click"></div>
-            <div id="play_girl" class="click"></div>
+
+
+
+        <div id="settings_screen" class="hidden">
+            <div id="music" class="click on"></div>
+            <div id="sfx" class="click on"></div>
+            <div id="settings_exit" class="click"></div>
         </div>
 
 
-        <div id="start_elements">
-            <div id="title"></div>
-            <div id="play_but" class="click button"></div>
-            <div id="settings_but" class="click button"></div>
-            <div id="visit_but" class="click logo_link button"><a href="http://privatsnak.dk/" target="_blank"></a></div>
-            <div class="logo click logo_link"><a href="http://privatsnak.dk/" target="_blank"></a></div>
+        <div id="gameover_screen" class="hidden">
+            <div id="playagain1" class="click"></div>
+            <div id="visit_us2">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42">
+                </a>
+
+
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
+            </div>
         </div>
 
 
-        <div id="settings_elements" class="hidden">
-            <div id="settings"></div>
-            <div id="music" class="click on button"></div>
-            <div id="sfx" class="click on button"></div>
-            <div id="settings_exit button" class="click"></div>
-            <div class="logo click logo_link"><a href="http://privatsnak.dk/" target="_blank"></a></div>
-        </div>
+
+        <div id="levelcomplete_screen" class="hidden">
+            <div id="playagain2" class="click"></div>
+            <div id="visit_us3">
+                Besøg os på:
+                <a href="http://privatsnak.dk/">
+                    <img src="elements/privatsnaklogo.svg" alt="privatsnak logo" height="42" width="42" target="_blank">
+                </a>
 
 
-        <div id="gameover_elements" class="hidden">
-            <div id="gameover_text"></div>
-            <div id="gameover_play_again" class="click button"></div>
-            <div id="gameover_visit_but" class="click logo_link button"><a href="http://privatsnak.dk/" target="_blank"></a></div>
-        </div>
+                <!--       <a href="http://privatsnak.dk/" target="_blank">Besøg os på privatsnak.dk</a>-->
 
-        <div id="levelcomplete_elements" class="hidden">
-            <div id="levelcomplete_text"></div>
-            <div id="levelcomplete_play_again" class="click button"></div>
-            <div id="levelcomplete_visit_but" class="click logo_link button"><a href="http://privatsnak.dk/" target="_blank"></a></div>
 
+            </div>
         </div>
     </div>
 
-    <div id="audio">
-        <audio src="elements/music_01.mp3" id="myMusic"></audio>
-        <audio src="elements/click.mp3" id="sfx1"></audio>
-        <audio src="elements/meow.mp3" id="sfx2"></audio>
-    </div>
+
+    <audio src="elements/music_01.mp3" id="myMusic"></audio>
+
+
+    <audio src="elements/click.mp3" id="sfx1"></audio>
+
+    <audio src="elements/meow.mp3" id="sfx2"></audio>
+
+
     <script src="script.js"></script>
 </body>
 
