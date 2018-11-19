@@ -29,10 +29,11 @@ function showStart() {
     document.querySelector("#settings_but").addEventListener("click", showSettings);
 
 }
+
 function hideStart() {
     console.log("hide start");
 
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
     document.querySelector("#start_elements").classList.add("fade_out");
     // Kan tilføjes til andre fade-outs, eks. når vi skal fra start til settings og tilbage
     document.querySelector("#start_elements").addEventListener("animationend", function _listener() {
@@ -60,7 +61,7 @@ function hideStart() {
 function showSettings() {
     console.log("show settings");
     document.querySelector("#start_elements").classList.add("hidden");
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
     document.querySelector("#settings_elements").classList.remove("hidden");
 
     document.querySelector("#music").addEventListener("click", toggleMusic);
@@ -71,11 +72,12 @@ function showSettings() {
 
 
 }
+
 function hideSettings() {
 
     console.log("hideSettings");
     document.querySelector("#settings_elements").classList.add("hidden");
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
     showStart();
 }
 
@@ -91,8 +93,9 @@ function toggleMusic() {
         musicOn();
     }
 
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
 }
+
 function musicOff() {
     console.log("musicOff");
 
@@ -101,6 +104,7 @@ function musicOff() {
 
     document.querySelector("#myMusic").muted = true;
 }
+
 function musicOn() {
     console.log("musicOn");
 
@@ -126,8 +130,9 @@ function toggleSound() {
         soundsOn();
     }
 
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
 }
+
 function soundsOff() {
     console.log("soundsOff");
 
@@ -136,8 +141,10 @@ function soundsOff() {
 
     document.querySelector("#sfx1").muted = true;
     document.querySelector("#sfx2").muted = true;
+    document.querySelector("#click").muted = true;
     //    document.querySelector("#sfx3").muted = true;
 }
+
 function soundsOn() {
     console.log("soundsOn");
 
@@ -146,6 +153,7 @@ function soundsOn() {
 
     document.querySelector("#sfx1").muted = false;
     document.querySelector("#sfx2").muted = false;
+    document.querySelector("#click").muted = false;
     //    document.querySelector("#sfx3").muted = false;
 
 }
@@ -165,17 +173,19 @@ function showAbout() {
 
 }
 
-function playBoy () {
+function playBoy() {
     document.querySelector("#character").classList.add("boy");
     startGame();
+    document.querySelector("#click").play();
 }
 
-function playGirl () {
+function playGirl() {
     document.querySelector("#character").classList.add("girl");
     startGame();
+    document.querySelector("#click").play();
 }
 
-function hideAbout () {
+function hideAbout() {
     document.querySelector("#about_screen").classList.remove("fade_in");
     document.querySelector("#about_screen").classList.add("fade_out");
     document.querySelector("#about_screen").addEventListener("animationend", function _listener() {
@@ -193,7 +203,7 @@ function startGame() {
     hideAbout();
     console.log("start game")
 
-    document.querySelector("#sfx1").play();
+    document.querySelector("#click").play();
 
     //Reset:
 
@@ -278,6 +288,9 @@ const Bubbles = {
         }
         Bubbles.shuffle();
         Bubbles.enable();
+        document.querySelector("#sfx1").play();
+         document.querySelector("#click").play();
+
     },
     onBadClick: function () {
         clickComfortable();
@@ -297,6 +310,10 @@ const Bubbles = {
         }
         Bubbles.shuffle();
         Bubbles.enable();
+
+        document.querySelector("#sfx2").play();
+        document.querySelector("#click").play();
+
     },
     _getClickEventForType: function (type) {
         if (Bubbles.types.good.includes(type)) {
@@ -362,9 +379,8 @@ function moveBus() {
     document.querySelector("#bus").classList.add(busCurrent);
     if (busPosition === 7) {
         if (points >= 10) {
-        showLevelComplete();
-        }
-        else if (points <= 9) {
+            showLevelComplete();
+        } else if (points <= 9) {
             showGameOver();
         }
     }
@@ -378,8 +394,7 @@ function clickIntimate() {
         points++;
         let currentPoints = "points_" + points;
         document.querySelector("#snak_o_meter").classList.add(currentPoints);
-    }
-    else if (points < 11) {
+    } else if (points < 11) {
         document.querySelector("#snak_o_meter").classList.remove("points_" + points);
         points += 2;
         let currentPoints = "points_" + points;
@@ -445,8 +460,8 @@ function showGameOver() {
     document.querySelector("#gameover_elements").classList.add("fade_in");
     timeLeft = 0;
 
-    document.querySelector("#sfx2").pause();
-    // document.querySelector("#gosound").play();
+    document.querySelector("#myMusic").pause();
+   document.querySelector("#gosound").play();
 
 
     document.querySelector("#playagain1").addEventListener("click", startGame);
@@ -468,7 +483,7 @@ function showLevelComplete() {
     timeLeft = 0;
 
 
-    document.querySelector("#sfx1").pause();
+    document.querySelector("#myMusic").pause();
     document.querySelector("#winsound").play();
 
 
