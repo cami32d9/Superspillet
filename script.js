@@ -244,22 +244,59 @@ const Bubbles = {
         element: document.querySelector('#bubble_container_4'),
         type: 'bubble_1',
     },
+    clicked: null,
     types: {
         good: ['bubble_1', 'bubble_2', 'bubble_3'],
         bad: ['bubble_4', 'bubble_5', 'bubble_6', 'bubble_7', 'bubble_8', 'bubble_9'],
     },
+    responses: {
+        bubble_1: 1,
+        bubble_2: 1,
+        bubble_3: 1,
+        bubble_4: 2,
+        bubble_5: 2,
+        bubble_6: 2,
+        bubble_7: 3,
+        bubble_8: 3,
+        bubble_9: 3,
+    },
     onGoodClick: function () {
         moveBus();
         clickIntimate();
+        document.querySelector("#mom_bubble_container").classList.remove("mom_start");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_3");
+        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_1");
+        }
+        if (this.classList.contains('bubble_4') || this.classList.contains('bubble_5') || this.classList.contains('bubble_6')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_2");
+        }
+        if (this.classList.contains('bubble_7') || this.classList.contains('bubble_8') || this.classList.contains('bubble_9')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_3");
+        }
         Bubbles.shuffle();
         Bubbles.enable();
     },
     onBadClick: function () {
         moveBus();
         clickComfortable();
+        document.querySelector("#mom_bubble_container").classList.remove("mom_start");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
+        document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_3");
+        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_1");
+        }
+        if (this.classList.contains('bubble_4') || this.classList.contains('bubble_5') || this.classList.contains('bubble_6')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_2");
+        }
+        if (this.classList.contains('bubble_7') || this.classList.contains('bubble_8') || this.classList.contains('bubble_9')) {
+            document.querySelector("#mom_bubble_container").classList.add("mom_bubble_3");
+        }
         Bubbles.shuffle();
         Bubbles.enable();
-
     },
     _getClickEventForType: function (type) {
         if (Bubbles.types.good.includes(type)) {
@@ -275,12 +312,18 @@ const Bubbles = {
     },
     shuffle: function () {
         Bubbles.reset();
-        // Get a random number to randomly pick a bubble to be the bad one
-        let bad = randomNumber(1, 4);
-        Bubbles.bubbleContainer1.type = Bubbles._getType(1 !== bad);
-        Bubbles.bubbleContainer2.type = Bubbles._getType(2 !== bad);
-        Bubbles.bubbleContainer3.type = Bubbles._getType(3 !== bad);
-        Bubbles.bubbleContainer4.type = Bubbles._getType(4 !== bad);
+        // Get a random number to randomly pick a bubble to be the good one
+        let good = randomNumber(1, 4);
+        Bubbles.bubbleContainer1.type = Bubbles._getType(1 === good);
+        Bubbles.bubbleContainer2.type = Bubbles._getType(2 === good);
+        Bubbles.bubbleContainer3.type = Bubbles._getType(3 === good);
+        Bubbles.bubbleContainer4.type = Bubbles._getType(4 === good);
+
+
+        console.log('1: ' + Bubbles.bubbleContainer1.type + ' ' + (Bubbles.types.good.includes(Bubbles.bubbleContainer1.type) ? 'good' : 'bad'));
+        console.log('2: ' + Bubbles.bubbleContainer2.type + ' ' + (Bubbles.types.good.includes(Bubbles.bubbleContainer2.type) ? 'good' : 'bad'));
+        console.log('3: ' + Bubbles.bubbleContainer3.type + ' ' + (Bubbles.types.good.includes(Bubbles.bubbleContainer3.type) ? 'good' : 'bad'));
+        console.log('4: ' + Bubbles.bubbleContainer4.type + ' ' + (Bubbles.types.good.includes(Bubbles.bubbleContainer4.type) ? 'good' : 'bad'));
 
         Bubbles.bubbleContainer1.element.classList.add(Bubbles.bubbleContainer1.type);
         Bubbles.bubbleContainer2.element.classList.add(Bubbles.bubbleContainer2.type);
@@ -328,15 +371,15 @@ function moveBus() {
 }
 
 function clickIntimate() {
+    console.log("Click intimate");
+
     if (points === 11) {
-        console.log("Click intimate");
         document.querySelector("#snak_o_meter").classList.remove("points_" + points);
         points++;
         let currentPoints = "points_" + points;
         document.querySelector("#snak_o_meter").classList.add(currentPoints);
     }
     else if (points < 11) {
-        console.log("Click intimate");
         document.querySelector("#snak_o_meter").classList.remove("points_" + points);
         points += 2;
         let currentPoints = "points_" + points;
@@ -344,7 +387,6 @@ function clickIntimate() {
     }
 
     if (mouth <= 4) {
-        console.log("Change mouth" + mouth);
         document.querySelector("#mouth").classList.remove("mouth_" + mouth);
         mouth++;
         let currentMouth = "mouth_" + mouth;
@@ -353,8 +395,9 @@ function clickIntimate() {
 };
 
 function clickComfortable() {
+    console.log("Click comfortable");
+
     if (points !== 0) {
-        console.log("Click comfortable");
         document.querySelector("#snak_o_meter").classList.remove("points_" + points);
         points--;
         let currentPoints = "points_" + points;
@@ -362,7 +405,6 @@ function clickComfortable() {
     }
 
     if (mouth >= 2) {
-        console.log("Change mouth" + mouth);
         document.querySelector("#mouth").classList.remove("mouth_" + mouth);
         mouth--;
         let currentMouth = "mouth_" + mouth;
@@ -423,7 +465,6 @@ function showLevelComplete() {
 
     //    document.querySelector("#gameover").classList.add("hide");
 
-    document.querySelector("#levelcomplete_screen").classList.remove("hide");
     timeLeft = 0;
 
 
