@@ -261,8 +261,8 @@ const Bubbles = {
         bubble_9: 3,
     },
     onGoodClick: function () {
-        moveBus();
         clickIntimate();
+        moveBus();
         document.querySelector("#mom_bubble_container").classList.remove("mom_start");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
@@ -280,8 +280,8 @@ const Bubbles = {
         Bubbles.enable();
     },
     onBadClick: function () {
-        moveBus();
         clickComfortable();
+        moveBus();
         document.querySelector("#mom_bubble_container").classList.remove("mom_start");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
