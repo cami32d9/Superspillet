@@ -72,7 +72,7 @@ img {
     height: 40%;
     width: 80%;
     position: absolute;
-    bottom: 0;
+    bottom: -1%;
     left: 10%;
     background-repeat: no-repeat;
 }
@@ -234,6 +234,34 @@ img {
 
 .bubble_9 {
     background-image: url("elements/bubble_9.svg");
+}
+
+.bubble_10 {
+    background-image: url("elements/bubble_10.svg");
+}
+
+.bubble_11 {
+    background-image: url("elements/bubble_11.svg");
+}
+
+.bubble_12 {
+    background-image: url("elements/bubble_12.svg");
+}
+
+.bubble_13 {
+    background-image: url("elements/bubble_13.svg");
+}
+
+.bubble_14 {
+    background-image: url("elements/bubble_14.svg");
+}
+
+.bubble_15 {
+    background-image: url("elements/bubble_15.svg");
+}
+
+.bubble_16 {
+    background-image: url("elements/bubble_16.svg");
 }
 
 
@@ -453,10 +481,19 @@ img {
     background-repeat: no-repeat;
 }
 
+.button:hover {
+    width: 34%;
+    height: 17%;
+}
+
 #play_but {
     top: 30%;
     left: 35%;
     background-image: url(elements/start_button.svg);
+}
+
+#play_but:hover {
+    left: 33%;
 }
 
 #settings_but {
@@ -466,11 +503,20 @@ img {
     background-image: url(elements/settings_button.svg);
 }
 
+#settings_but:hover {
+    left: 33%;
+    top: 45%;
+}
+
 #visit_but {
     position: absolute;
     top: 62%;
     left: 35%;
     background-image: url(elements/visit_button.svg);
+}
+
+#visit_but:hover {
+    left: 33%;
 }
 
 
@@ -499,10 +545,12 @@ img {
     position: absolute;
     top: 30%;
     left: 35%;
-    width: 30%;
-    height: 13%;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#music:hover {
+    left: 33%;
 }
 
 #music.on {
@@ -517,11 +565,14 @@ img {
     position: absolute;
     top: 46%;
     left: 35%;
-    width: 30%;
-    height: 13%;
     background-image: url(elements/effects_on.svg);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#sfx:hover {
+    left: 33%;
+    top: 45%;
 }
 
 #sfx.on {
@@ -536,11 +587,13 @@ img {
     position: absolute;
     top: 62%;
     left: 35%;
-    width: 30%;
-    height: 13%;
     background-image: url(elements/back_button.svg);
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+#settings_exit:hover {
+    left: 33%;
 }
 
 /* ABOUT */
@@ -569,12 +622,14 @@ img {
     position: absolute;
     top: 70%;
     left: 15%;
-    width: 30%;
-    height: 13%;
-    background-image: url(elements/next_button.svg);
+    background-image: url(elements/play_boy_buton.svg);
     background-size: contain;
     background-repeat: no-repeat;
 
+}
+
+#play_boy:hover {
+    left: 13%;
 }
 
 #play_girl {
@@ -582,12 +637,14 @@ img {
     position: absolute;
     top: 70%;
     left: 55%;
-    width: 30%;
-    height: 13%;
-    background-image: url(elements/next_button.svg);
+    background-image: url(elements/play_girl_button.svg);
     background-size: contain;
     background-repeat: no-repeat;
 
+}
+
+#play_girl:hover {
+    left: 53%;
 }
 
 /* GAME OVER*/
@@ -617,10 +674,18 @@ img {
     background-image: url(elements/play_again_button.svg);
 }
 
+#gameover_play_again:hover {
+    left: 13%;
+}
+
 #gameover_visit_but {
     top: 70%;
     left: 55%;
     background-image: url(elements/visit_button.svg);
+}
+
+#gameover_visit_but:hover {
+    left: 53%;
 }
 
 
@@ -651,10 +716,18 @@ img {
     background-image: url(elements/play_again_button.svg);
 }
 
+#levelcomplete_play_again:hover {
+    left: 13%;
+}
+
 #levelcomplete_visit_but {
     top: 70%;
     left: 55%;
     background-image: url(elements/visit_button.svg);
+}
+
+#levelcomplete_visit_but:hover {
+    left: 53%;
 }
 
 

@@ -4,7 +4,7 @@ let showSettingsMusic = true;
 
 let points = 6;
 let busPosition = 1;
-let mouth = 1;
+let mouth = 3;
 
 window.addEventListener("load", pageLoaded);
 
@@ -22,34 +22,68 @@ function showStart() {
     console.log("show start");
 
 
+    document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
+    document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
+    document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_3");
+    document.querySelector("#mom_bubble_container").classList.add("mom_start");
+
+    document.querySelector("#play_but").classList.add("click");
+    document.querySelector("#settings_but").classList.add("click");
+    document.querySelector("#visit_but").classList.add("click");
+
     document.querySelector("#play_but").addEventListener("click", showAbout);
     document.querySelector("#start_elements").classList.remove("hidden");
+    document.querySelector("#start_elements").classList.remove("fade_out");
+    document.querySelector("#start_elements").classList.add("fade_in");
 
     document.querySelector("#settings_but").addEventListener("click", showSettings);
+
+    document.querySelector("#snak_o_meter").classList.remove("points_" + points);
+    document.querySelector("#bus").classList.remove("bus_" + busPosition);
+    document.querySelector("#mouth").classList.remove("mouth_" + mouth);
+
+    points = 6;
+    busPosition = 1;
+    mouth = 3;
+
+    let busCurrent = "bus_" + busPosition;
+    document.querySelector("#bus").classList.add(busCurrent);
+
+    let currentPoints = "points_" + points;
+    document.querySelector("#snak_o_meter").classList.add(currentPoints);
+
+    let currentMouth = "mouth_" + mouth;
+    document.querySelector("#mouth").classList.add(currentMouth);
+
 
 }
 
 function hideStart() {
-    console.log("hide start");
+    console.log("hide start now");
 
+<<<<<<< HEAD
     document.querySelector("#click").play();
     document.querySelector("#click").volume = 0.6;
+=======
+    document.querySelector("#start_elements").classList.remove("fade_in");
+>>>>>>> origin/master
     document.querySelector("#start_elements").classList.add("fade_out");
+
+    document.querySelector("#play_but").removeEventListener("click", hideStart);
+    document.querySelector("#settings_but").removeEventListener("click", showSettings);
+    document.querySelector("#visit_but").classList.remove("logo_link");
+
+    document.querySelector("#play_but").classList.remove("click");
+    document.querySelector("#settings_but").classList.remove("click");
+    document.querySelector("#visit_but").classList.remove("click");
+
+    document.querySelector("#click").play();
     // Kan tilføjes til andre fade-outs, eks. når vi skal fra start til settings og tilbage
     document.querySelector("#start_elements").addEventListener("animationend", function _listener() {
         document.querySelector("#start_elements").classList.add("hidden");
         document.querySelector("#start_elements").removeEventListener("animationend", _listener);
     });
     //
-
-
-    //rydde op:
-    document.querySelector("#play_but").removeEventListener("click", hideStart);
-
-    document.querySelector("#settings_but").removeEventListener("click", showSettings);
-
-    //rydde op slut
-
 
     document.querySelector("#myMusic").play();
     document.querySelector("#myMusic").loop = true;
@@ -164,16 +198,22 @@ function soundsOn() {
 
 function showAbout() {
     console.log("show about");
-    hideStart()
+    hideStart();
     document.querySelector("#about_screen").classList.remove("hidden");
+    document.querySelector("#about_screen").classList.remove("fade_out");
     document.querySelector("#about_screen").classList.add("fade_in");
+    document.querySelector("#about_screen").addEventListener("animationend", function _listener() {
+        document.querySelector("#play_boy").addEventListener("click", playBoy);
+        document.querySelector("#play_girl").addEventListener("click", playGirl);
+        document.querySelector("#play_boy").classList.add("click");
+        document.querySelector("#play_girl").classList.add("click");
+        document.querySelector("#about_screen").removeEventListener("animationend", _listener);
+    });
     //    document.querySelector("#myMusic").play();
     //    document.querySelector("#myMusic").loop = true;
     //    document.querySelector("#myMusic").volume = 0.7;
     //document.querySelector("#about").classList.remove("hide");
 
-    document.querySelector("#play_boy").addEventListener("click", playBoy);
-    document.querySelector("#play_girl").addEventListener("click", playGirl);
 
 }
 
@@ -192,12 +232,17 @@ function playGirl() {
 }
 
 function hideAbout() {
+    console.log("hide about");
+    document.querySelector("#play_boy").classList.remove("click");
+    document.querySelector("#play_girl").classList.remove("click");
+
     document.querySelector("#about_screen").classList.remove("fade_in");
     document.querySelector("#about_screen").classList.add("fade_out");
     document.querySelector("#about_screen").addEventListener("animationend", function _listener() {
         document.querySelector("#about_screen").classList.add("hidden");
         document.querySelector("#about_screen").removeEventListener("animationend", _listener);
     });
+    document.querySelector("#pop_screen").classList.remove("fade_in");
     document.querySelector("#pop_screen").classList.add("fade_out");
     document.querySelector("#pop_screen").addEventListener("animationend", function _listener() {
         document.querySelector("#pop_screen").classList.add("hidden");
@@ -207,7 +252,7 @@ function hideAbout() {
 
 function startGame() {
     hideAbout();
-    console.log("start game")
+    console.log("start game");
 
     document.querySelector("#click").play();
     document.querySelector("#click").volume = 0.6;
@@ -230,6 +275,72 @@ function startGame() {
     // timeLeft();
 
 }
+
+function showGameOver() {
+    console.log("game over");
+    document.querySelector("#pop_screen").classList.remove("hidden");
+    document.querySelector("#pop_screen").classList.remove("fade_out");
+    document.querySelector("#pop_screen").classList.add("fade_in");
+    document.querySelector("#gameover_elements").classList.remove("hidden");
+    document.querySelector("#gameover_elements").classList.add("fade_in");
+
+    document.querySelector("#myMusic").pause();
+    document.querySelector("#gosound").play();
+
+
+    document.querySelector("#gameover_play_again").addEventListener("click", hideGameOver);
+}
+
+
+function hideGameOver() {
+    document.querySelector("#gameover_elements").classList.remove("fade_in");
+    document.querySelector("#gameover_elements").classList.add("fade_out");
+    document.querySelector("#gameover_elements").addEventListener("animationend", function _listener() {
+        document.querySelector("#gameover_elements").classList.add("hidden");
+        document.querySelector("#gameover_elements").removeEventListener("animationend", _listener);
+    });
+    timeLeft = 0;
+
+    document.querySelector("#myMusic").pause();
+    document.querySelector("#gosound").play();
+    document.querySelector("#gameover_play_again").removeEventListener("click", hideGameOver);
+    showStart();
+    //    document.querySelector("#playagain_knap").addEventListener("click", gameReset);
+
+}
+
+function showLevelComplete() {
+    console.log("game won");
+    document.querySelector("#pop_screen").classList.remove("hidden");
+    document.querySelector("#pop_screen").classList.remove("fade_out");
+    document.querySelector("#pop_screen").classList.add("fade_in");
+    document.querySelector("#levelcomplete_elements").classList.remove("hidden");
+    document.querySelector("#levelcomplete_elements").classList.add("fade_in");
+
+
+    document.querySelector("#myMusic").pause();
+    document.querySelector("#winsound").play();
+
+
+    document.querySelector("#levelcomplete_play_again").addEventListener("click", hideLevelComplete);
+}
+
+function hideLevelComplete() {
+    document.querySelector("#levelcomplete_elements").classList.remove("fade_in");
+    document.querySelector("#levelcomplete_elements").classList.add("fade_out");
+    document.querySelector("#levelcomplete_elements").addEventListener("animationend", function _listener() {
+        document.querySelector("#levelcomplete_elements").classList.add("hidden");
+        document.querySelector("#levelcomplete_elements").removeEventListener("animationend", _listener);
+    });
+
+    document.querySelector("#myMusic").pause();
+    document.querySelector("#gosound").play();
+    document.querySelector("#levelcomplete_play_again").removeEventListener("click", hideGameOver);
+    showStart();
+    //    document.querySelector("#playagain_knap").addEventListener("click", gameReset);
+
+}
+
 
 
 
@@ -265,7 +376,7 @@ const Bubbles = {
     },
     clicked: null,
     types: {
-        good: ['bubble_1', 'bubble_2', 'bubble_3'],
+        good: ['bubble_1', 'bubble_2', 'bubble_3', 'bubble_10', 'bubble_11', 'bubble_12', 'bubble_13', 'bubble_14', 'bubble_15', 'bubble_16'],
         bad: ['bubble_4', 'bubble_5', 'bubble_6', 'bubble_7', 'bubble_8', 'bubble_9'],
     },
     responses: {
@@ -286,7 +397,7 @@ const Bubbles = {
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_3");
-        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3')) {
+        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3') || this.classList.contains('bubble_10') || this.classList.contains('bubble_11') || this.classList.contains('bubble_12') || this.classList.contains('bubble_13') || this.classList.contains('bubble_14') || this.classList.contains('bubble_15') || this.classList.contains('bubble_16')) {
             document.querySelector("#mom_bubble_container").classList.add("mom_bubble_1");
         }
         if (this.classList.contains('bubble_4') || this.classList.contains('bubble_5') || this.classList.contains('bubble_6')) {
@@ -308,7 +419,7 @@ const Bubbles = {
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_1");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_2");
         document.querySelector("#mom_bubble_container").classList.remove("mom_bubble_3");
-        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3')) {
+        if (this.classList.contains('bubble_1') || this.classList.contains('bubble_2') || this.classList.contains('bubble_3') || this.classList.contains('bubble_10') || this.classList.contains('bubble_11') || this.classList.contains('bubble_12') || this.classList.contains('bubble_13') || this.classList.contains('bubble_14') || this.classList.contains('bubble_15') || this.classList.contains('bubble_16')) {
             document.querySelector("#mom_bubble_container").classList.add("mom_bubble_1");
         }
         if (this.classList.contains('bubble_4') || this.classList.contains('bubble_5') || this.classList.contains('bubble_6')) {
@@ -416,7 +527,7 @@ function clickIntimate() {
         let currentMouth = "mouth_" + mouth;
         document.querySelector("#mouth").classList.add(currentMouth);
     }
-};
+}
 
 function clickComfortable() {
     console.log("Click comfortable");
@@ -434,7 +545,7 @@ function clickComfortable() {
         let currentMouth = "mouth_" + mouth;
         document.querySelector("#mouth").classList.add(currentMouth);
     }
-};
+}
 
 
 // Not in use yet?
@@ -459,6 +570,7 @@ function timeLeftFc() {
 
 
 }
+<<<<<<< HEAD
 
 function showGameOver() {
     console.log("game over")
@@ -508,3 +620,5 @@ function showLevelComplete() {
 
     document.querySelector("#playagain2").addEventListener("click", startGame);
 }
+=======
+>>>>>>> origin/master
