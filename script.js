@@ -1,7 +1,6 @@
 let showSettingsEffektSound = true;
 let showSettingsMusic = true;
-//let score = 0;
-//let timeLeft = 15;
+
 
 let points = 6;
 let busPosition = 1;
@@ -34,6 +33,7 @@ function hideStart() {
     console.log("hide start");
 
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
     document.querySelector("#start_elements").classList.add("fade_out");
     // Kan tilføjes til andre fade-outs, eks. når vi skal fra start til settings og tilbage
     document.querySelector("#start_elements").addEventListener("animationend", function _listener() {
@@ -53,7 +53,7 @@ function hideStart() {
 
     document.querySelector("#myMusic").play();
     document.querySelector("#myMusic").loop = true;
-    document.querySelector("#myMusic").volume = 0.4;
+    document.querySelector("#myMusic").volume = 0.3;
 
 
 }
@@ -62,6 +62,7 @@ function showSettings() {
     console.log("show settings");
     document.querySelector("#start_elements").classList.add("hidden");
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
     document.querySelector("#settings_elements").classList.remove("hidden");
 
     document.querySelector("#music").addEventListener("click", toggleMusic);
@@ -78,6 +79,7 @@ function hideSettings() {
     console.log("hideSettings");
     document.querySelector("#settings_elements").classList.add("hidden");
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
     showStart();
 }
 
@@ -94,6 +96,7 @@ function toggleMusic() {
     }
 
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
 }
 
 function musicOff() {
@@ -131,6 +134,7 @@ function toggleSound() {
     }
 
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
 }
 
 function soundsOff() {
@@ -177,12 +181,14 @@ function playBoy() {
     document.querySelector("#character").classList.add("boy");
     startGame();
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
 }
 
 function playGirl() {
     document.querySelector("#character").classList.add("girl");
     startGame();
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
 }
 
 function hideAbout() {
@@ -204,6 +210,9 @@ function startGame() {
     console.log("start game")
 
     document.querySelector("#click").play();
+    document.querySelector("#click").volume = 0.6;
+
+    document.querySelector("#winsound").volume = 0;
 
     //Reset:
 
@@ -289,7 +298,7 @@ const Bubbles = {
         Bubbles.shuffle();
         Bubbles.enable();
         document.querySelector("#sfx1").play();
-         document.querySelector("#click").play();
+        //        document.querySelector("#click").play();
 
     },
     onBadClick: function () {
@@ -312,7 +321,7 @@ const Bubbles = {
         Bubbles.enable();
 
         document.querySelector("#sfx2").play();
-        document.querySelector("#click").play();
+        //        document.querySelector("#click").play();
 
     },
     _getClickEventForType: function (type) {
@@ -460,8 +469,13 @@ function showGameOver() {
     document.querySelector("#gameover_elements").classList.add("fade_in");
     timeLeft = 0;
 
-    document.querySelector("#myMusic").pause();
-   document.querySelector("#gosound").play();
+    //    document.querySelector("#myMusic").pause();
+    document.querySelector("#myMusic").volume = 0.2;
+    //    document.querySelector("#gosound").play();
+    //    document.querySelector("#gosound").volume = 0.8;
+    //    document.querySelector("#gosound").volume = 0.6;
+    document.querySelector("#winsound").play();
+    document.querySelector("#winsound").volume = 0.8;
 
 
     document.querySelector("#playagain1").addEventListener("click", startGame);
@@ -483,8 +497,13 @@ function showLevelComplete() {
     timeLeft = 0;
 
 
-    document.querySelector("#myMusic").pause();
+    document.querySelector("#myMusic").volume = 0.2;
+
     document.querySelector("#winsound").play();
+    document.querySelector("#winsound").volume = 0.8;
+
+    //    document.querySelector("#myMusic").pause();
+    //    document.querySelector("#winsound").play();
 
 
     document.querySelector("#playagain2").addEventListener("click", startGame);
